@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnimesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,10 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/anime', [AnimesController::class, 'add']);
+    Route::post('/anime', [AnimesController::class, 'create']);
+
+    Route::get('/anime/{anime}', [AnimesController::class, 'edit']);
+    Route::post('/anime/{anime}', [AnimesController::class, 'update']);
 });
