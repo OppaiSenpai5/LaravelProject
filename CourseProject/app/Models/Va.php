@@ -9,6 +9,8 @@ class Va extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function characters()
     {
         return $this->hasMany(Character::class);

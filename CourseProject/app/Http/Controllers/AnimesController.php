@@ -9,7 +9,7 @@ class AnimesController extends Controller
 {
     public function add()
     {
-        return view('add');
+        return view('anime/add-anime');
     }
 
     public function create(Request $request)
@@ -34,19 +34,19 @@ class AnimesController extends Controller
         $anime->fill($data);
         $anime->image = $imageName;
         $anime->save();
-        return redirect('/dashboard');
+        return redirect('/animes');
     }
 
     public function edit(Anime $anime)
     {
-        return view('edit', compact('anime'));
+        return view('anime/edit-anime', compact('anime'));
     }
 
     public function update(Request $request, Anime $anime)
     {
         if(isset($_POST['delete'])) {
             $anime->delete();
-            return redirect('/dashboard');
+            return redirect('/animes');
         }
         else
         {
@@ -69,7 +69,12 @@ class AnimesController extends Controller
             $anime->fill($data);
             $anime->image = $imageName ?? $anime->image;
             $anime->save();
-            return redirect('/dashboard');
+            return redirect('/animes');
         }
+    }
+
+    public function details(Anime $anime)
+    {
+        return view('anime/details-anime', compact('anime'));
     }
 }
