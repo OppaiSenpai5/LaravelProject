@@ -4,6 +4,7 @@ namespace App\Orchid\Layouts;
 
 use App\Models\Anime;
 use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Component;
 use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\TD;
@@ -29,19 +30,26 @@ class AnimeListLayout extends Table
     {
         return [
             TD::make('title', 'Title')
+                ->sort()
+                ->filter(Input::make())
                 ->render(function (Anime $anime) {
                     return Link::make($anime->title)
                         ->route('platform.anime.edit', $anime);
                 }),
 
-            TD::make('episodes', 'Episodes'),
-            TD::make('duration', 'Duration'),
-            TD::make('score', 'Score'),
+            TD::make('episodes', 'Episodes')
+                ->sort(),
+            TD::make('duration', 'Duration')
+                ->sort(),
+            TD::make('score', 'Score')
+                ->sort(),
             TD::make('aired', 'Aired'),
             Td::make('image', 'Image'),
 
-            TD::make('created_at', 'Created'),
-            TD::make('updated_at', 'Last edit'),
+            TD::make('created_at', 'Created')
+                ->sort(),
+            TD::make('updated_at', 'Last edit')
+                ->sort(),
         ];
     }
 }

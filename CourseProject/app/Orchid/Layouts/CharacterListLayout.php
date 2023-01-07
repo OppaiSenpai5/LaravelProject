@@ -4,6 +4,7 @@ namespace App\Orchid\Layouts;
 
 use App\Models\Character;
 use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\TD;
 
@@ -28,6 +29,8 @@ class CharacterListLayout extends Table
     {
         return [
             TD::make('name', 'Name')
+                ->sort()
+                ->filter(Input::make())
                 ->render(function (Character $character) {
                     return Link::make($character->name)
                         ->route('platform.character.edit', $character);
@@ -36,8 +39,10 @@ class CharacterListLayout extends Table
             TD::make('va_id', 'Voice actor'),
             TD::make('anime_id', 'Anime'),
 
-            TD::make('created_at', 'Created'),
-            TD::make('updated_at', 'Last edit'),
+            TD::make('created_at', 'Created')
+                ->sort(),
+            TD::make('updated_at', 'Last edit')
+                ->sort(),
         ];
     }
 }

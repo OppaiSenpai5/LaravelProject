@@ -17,7 +17,7 @@ class VaListScreen extends Screen
     public function query(): iterable
     {
         return [
-            'vas' => Va::paginate()
+            'vas' => Va::filters()->defaultSort('id')->paginate()
         ];
     }
 

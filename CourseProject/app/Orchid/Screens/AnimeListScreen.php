@@ -17,7 +17,7 @@ class AnimeListScreen extends Screen
     public function query(): iterable
     {
         return [
-            'animes' => Anime::paginate()
+            'animes' => Anime::filters()->defaultSort('id')->paginate()
         ];
     }
 

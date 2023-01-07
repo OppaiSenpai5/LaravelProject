@@ -4,6 +4,7 @@ namespace App\Orchid\Layouts;
 
 use App\Models\Va;
 use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\TD;
 
@@ -28,13 +29,17 @@ class VaListLayout extends Table
     {
         return [
             TD::make('name', 'Name')
+                ->sort()
+                ->filter(Input::make())
                 ->render(function (Va $va) {
                     return Link::make($va->name)
                         ->route('platform.va.edit', $va);
                 }),
 
-            TD::make('created_at', 'Created'),
-            TD::make('updated_at', 'Last edit'),
+            TD::make('created_at', 'Created')
+                ->sort(),
+            TD::make('updated_at', 'Last edit')
+                ->sort(),
         ];
     }
 }

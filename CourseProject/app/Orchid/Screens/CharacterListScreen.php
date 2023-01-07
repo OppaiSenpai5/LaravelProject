@@ -17,7 +17,7 @@ class CharacterListScreen extends Screen
     public function query(): iterable
     {
         return [
-            'characters' => Character::paginate()
+            'characters' => Character::filters()->defaultSort('id')->paginate()
         ];
     }
 
