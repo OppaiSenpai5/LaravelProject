@@ -27,6 +27,8 @@ class AnimeEditScreen extends Screen
      */
     public function query(Anime $anime): iterable
     {
+        $anime->load('attachment');
+
         return [
             'anime' => $anime
         ];
@@ -145,6 +147,10 @@ class AnimeEditScreen extends Screen
     public function createOrUpdate(Anime $anime, Request $request)
     {
         $anime->fill($request->get('anime'))->save();
+
+        $anime->attachment()->syncWithoutDetaching(
+            $request->input('anime.attachment', [])
+        );
 
         Alert::info('You have successfully created an anime.');
 

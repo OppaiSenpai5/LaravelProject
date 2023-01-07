@@ -33,6 +33,14 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.anime.list')
                 ->title('Navigation'),
 
+            Menu::make('Voice Actors')
+                ->icon('envelope-letter')
+                ->route('platform.va.list'),
+
+            Menu::make('Characters')
+                ->icon('envelope-letter')
+                ->route('platform.character.list'),
+
             Menu::make('Example screen')
                 ->icon('monitor')
                 ->route('platform.example')

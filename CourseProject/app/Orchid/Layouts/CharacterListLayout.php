@@ -2,13 +2,12 @@
 
 namespace App\Orchid\Layouts;
 
-use App\Models\Anime;
+use App\Models\Character;
 use Orchid\Screen\Actions\Link;
-use Orchid\Screen\Layouts\Component;
 use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\TD;
 
-class AnimeListLayout extends Table
+class CharacterListLayout extends Table
 {
     /**
      * Data source.
@@ -18,7 +17,7 @@ class AnimeListLayout extends Table
      *
      * @var string
      */
-    public $target = 'animes';
+    public $target = 'characters';
 
     /**
      * Get the table cells to be displayed.
@@ -28,17 +27,14 @@ class AnimeListLayout extends Table
     protected function columns(): iterable
     {
         return [
-            TD::make('title', 'Title')
-                ->render(function (Anime $anime) {
-                    return Link::make($anime->title)
-                        ->route('platform.anime.edit', $anime);
+            TD::make('name', 'Name')
+                ->render(function (Character $character) {
+                    return Link::make($character->name)
+                        ->route('platform.character.edit', $character);
                 }),
 
-            TD::make('episodes', 'Episodes'),
-            TD::make('duration', 'Duration'),
-            TD::make('score', 'Score'),
-            TD::make('aired', 'Aired'),
-            Td::make('image', 'Image'),
+            TD::make('va_id', 'Voice actor'),
+            TD::make('anime_id', 'Anime'),
 
             TD::make('created_at', 'Created'),
             TD::make('updated_at', 'Last edit'),

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 use App\Orchid\Screens\AnimeEditScreen;
 use App\Orchid\Screens\AnimeListScreen;
+use App\Orchid\Screens\CharacterEditScreen;
+use App\Orchid\Screens\CharacterListScreen;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
 use App\Orchid\Screens\Examples\ExampleChartsScreen;
 use App\Orchid\Screens\Examples\ExampleFieldsAdvancedScreen;
@@ -17,6 +19,8 @@ use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
+use App\Orchid\Screens\VaEditScreen;
+use App\Orchid\Screens\VaListScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -29,6 +33,28 @@ Route::screen('animes', AnimeListScreen::class)
         return $trail
             ->parent('platform.index')
             ->push('Animes');
+    });
+
+Route::screen('va/{va?}', VaEditScreen::class)
+    ->name('platform.va.edit');
+
+Route::screen('vas', VaListScreen::class)
+    ->name('platform.va.list')
+    ->breadcrumbs(function (Trail $trail){
+        return $trail
+            ->parent('platform.index')
+            ->push('Vas');
+    });
+
+Route::screen('character/{character?}', CharacterEditScreen::class)
+    ->name('platform.character.edit');
+
+Route::screen('characters', CharacterListScreen::class)
+    ->name('platform.character.list')
+    ->breadcrumbs(function (Trail $trail){
+        return $trail
+            ->parent('platform.index')
+            ->push('Characters');
     });
 
 /*
