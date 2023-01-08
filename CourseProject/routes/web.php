@@ -42,23 +42,7 @@ Route::middleware([
         return view('character/characters');
     })->name('characters');
 
-    Route::get('/anime', [AnimesController::class, 'add']);
-    Route::post('/anime', [AnimesController::class, 'create']);
-
-    Route::get('/anime/{anime}', [AnimesController::class, 'edit']);
-    Route::post('/anime/{anime}', [AnimesController::class, 'update']);
-
     Route::get('/anime/details/{anime}', [AnimesController::class, 'details']);
-
-    Route::get('/va', [VasController::class, 'add']);
-    Route::post('/va', [VasController::class, 'create']);
-
-    Route::get('/va/{va}', [VasController::class, 'edit']);
-    Route::post('/va/{va}', [VasController::class, 'update']);
-
-    Route::get('/character', [CharactersController::class, 'add']);
-    Route::post('/character', [CharactersController::class, 'create']);
-
-    Route::get('/character/{character}', [CharactersController::class, 'edit']);
-    Route::post('/character/{character}', [CharactersController::class, 'update']);
+    Route::get('/character/details/{character}', [CharactersController::class, 'details']);
+    Route::get('/va/details/{va}', [VasController::class, 'details']);
 });

@@ -7,50 +7,50 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-5">
-                <div class="flex">
-                    <div class="flex-auto text-2xl mb-4">Characters List</div>
-
-                    <div class="flex-auto text-right mt-2">
-                        <a href="/character" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add
-                            New Character</a>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-white overflow-hidden shadow-xl sm:rounded-lg p-5">
+            <section class="text-gray-600 body-font">
+                <div class="container px-5 py-10 mx-auto">
+                    <div class="flex flex-col text-center w-full mb-20">
+                        <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">CHARACTERS</h1>
+                        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">A list of all characters starring in the animes on our site.</p>
                     </div>
-                </div>
-
-                <div class="flex flex-row flex-wrap">
-                    @foreach (Character::all() as $character)
-                        <div class="flex justify-center">
-                            <div class="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
-                                <img class=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg" src="/images/{{ $character->image }}" alt="" />
-                                <div class="p-6 flex flex-col justify-between">
-                                    <div>
-                                        <h5 class="text-gray-900 text-xl font-medium mb-2">
-                                            {{ $character->name }}
-                                        </h5>
-                                    </div>
-                                    <p class="text-gray-700 text-base mb-4 text-justify">
-                                        {{ $character->about }}
+                    <div class="flex flex-wrap -m-4">
+                        @foreach(Character::all() as $character)
+                            <div class="flex lg:w-1/2 border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
+                                <a href="/character/details/{{ $character->id }}">
+                                    <img alt="team" class="w-40 h-40 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="{{ $character->image }}">
+                                </a>
+                                <div class="flex flex-grow flex-col sm:text-left text-center mt-6 sm:mt-0 justify-center">
+                                    <h1 class="text-gray-900 text-3xl title-font mb-2">{{ $character->name }}</h1>
+                                    <p class="leading-relaxed text-base">Anime:
+                                        <a class="mt-3 text-indigo-500 inline-flex items-center" href="/anime/details/{{ $character->anime->id }}">
+                                            {{ $character->anime->title }}
+                                        </a>
+                                    </p>
+                                    <p class="leading-relaxed text-base">Voice actor:
+                                        <a class="mt-3 text-indigo-500 inline-flex items-center" href="/va/details/{{ $character->anime->id }}">
+                                            {{ $character->va->name }}
+                                        </a>
                                     </p>
                                 </div>
                             </div>
-                        </div>
-
-{{--                        <a href="#" class="flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">--}}
-{{--                            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="/images/{{ $character->image }}" alt="">--}}
-{{--                            <div class="flex flex-col justify-between p-4 leading-normal">--}}
-{{--                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">--}}
-{{--                                    {{ $character->name }}--}}
-{{--                                </h5>--}}
-{{--                                <a href="/anime/details/{{ $character->id }}">--}}
-{{--                                    <span>{{ $character->anime->title }}</span>--}}
-{{--                                </a>--}}
-{{--                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $character->about }}</p>--}}
+{{--                            <div class="p-4 lg:w-1/4 md:w-1/2">--}}
+{{--                                <div class="h-full flex flex-col items-center text-center">--}}
+{{--                                    <a href="/character/details/{{ $character->id }}">--}}
+{{--                                        <img alt="team" class="flex-shrink-0 rounded-lg w-full object-cover object-center mb-4" src="{{ $character->image }}">--}}
+{{--                                    </a>--}}
+{{--                                    <div class="w-full">--}}
+{{--                                        <h2 class="title-font font-medium text-lg text-gray-900">{{ $character->name }}</h2>--}}
+{{--                                        <a href="/anime/details/{{ $character->anime->id }}">--}}
+{{--                                            <h3 class="tracking-widest text-indigo-500 title-font">{{ $character->anime->title }}</h3>--}}
+{{--                                        </a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 {{--                            </div>--}}
-{{--                        </a>--}}
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
-            </div>
+            </section>
         </div>
     </div>
 </x-app-layout>
