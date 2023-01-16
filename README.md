@@ -24,7 +24,7 @@ In order to run the project you'll need to run the following commands in the pro
 composer update
 composer install
 npm install
-php artsisan key:generate
+php artisan key:generate
 php artisan storage:link
 php artisan migrate --seed
 npm run build
