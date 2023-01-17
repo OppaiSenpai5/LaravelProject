@@ -1,7 +1,20 @@
 # About
 This project a management system for animes vaguely similar to sites like [AniList.co](https://anilist.co/) and is built with the [Laravel](https://laravel.com/) framework.
 
-The project is licensed under the MIT license
+The project is licensed under the MIT license.
+
+- [Code](#code)
+	- [Models](#models)
+	- [Routes](#routes)
+	- [Screens](#screens)
+		- [Edit Screen](#edit-screen)
+		- [List Screen](#list-screen)
+	- [Public Section](#public-section)
+- [Setup](#setup)
+	- [Requirements](#requirements)
+	- [Download](#download)
+	- [Environment Configutation](#environment-configuration)
+	- [Run the project](#run-the-project)
 
 # Code
 This project was largely built using [Laravel Jetstream Livewire](https://jetstream.laravel.com/2.x/stacks/livewire.html) for the authentication and authorization of users and [Laravel Orchid](https://orchid.software/) for the admin panel and CRUD operations.
@@ -41,7 +54,7 @@ We additionally definite the layout for the List Screen in a separate file. This
 
 ![Anime List Layout](images/list_layout.PNG)
 
-## Public Sections
+## Public Section
 For the pages that are not part of the admin panel we use standard controllers, views, and routing.
 - views are contained in `resources/views`
 - controllers are contained in `app/Http/Controllers`
