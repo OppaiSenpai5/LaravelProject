@@ -11,4 +11,11 @@ class CharactersController extends Controller
     {
         return view('character/details-character', compact('character'));
     }
+
+    public function list()
+    {
+        $characters = Character::filters()->defaultSort('id')->paginate();
+
+        return view('character/characters', compact('characters'));
+    }
 }

@@ -30,17 +30,10 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/animes', function () {
-        return view('anime/animes');
-    })->name('animes');
 
-    Route::get('/vas', function () {
-        return view('va/vas');
-    })->name('vas');
-
-    Route::get('/characters', function () {
-        return view('character/characters');
-    })->name('characters');
+    Route::get('/animes', [AnimesController::class, 'list'])->name('animes');
+    Route::get('/vas', [VasController::class, 'list'])->name('vas');
+    Route::get('/characters', [CharactersController::class, 'list'])->name('characters');
 
     Route::get('/anime/details/{anime}', [AnimesController::class, 'details']);
     Route::get('/character/details/{character}', [CharactersController::class, 'details']);

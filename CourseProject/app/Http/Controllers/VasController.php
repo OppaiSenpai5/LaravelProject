@@ -11,4 +11,11 @@ class VasController extends Controller
     {
         return view('va/details-va', compact('va'));
     }
+
+    public function list()
+    {
+        $vas = Va::filters()->defaultSort('id')->paginate();
+
+        return view('va/vas', compact('vas'));
+    }
 }
