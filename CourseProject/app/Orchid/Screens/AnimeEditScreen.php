@@ -132,14 +132,6 @@ class AnimeEditScreen extends Screen
                     ->height(750)
                     ->path('public')
                     ->targetUrl(),
-
-//                Relation::make('post.author')
-//                    ->title('Author')
-//                    ->fromModel(User::class, 'name'),
-
-//                Quill::make('anime.body')
-//                    ->title('Main text'),
-
             ])
         ];
     }

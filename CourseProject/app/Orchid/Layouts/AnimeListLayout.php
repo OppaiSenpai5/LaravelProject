@@ -44,7 +44,6 @@ class AnimeListLayout extends Table
             TD::make('score', 'Score')
                 ->sort(),
             TD::make('aired', 'Aired'),
-            Td::make('image', 'Image'),
 
             TD::make('created_at', 'Created')
                 ->sort(),

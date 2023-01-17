@@ -32,23 +32,23 @@
                         <h1 class="sm:w-2/5 text-white font-medium title-font text-2xl mb-2 sm:mb-0">Characters</h1>
                     </div>
                 </div>
-                @foreach($va->characters as $character)
                     <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                        <div class="text-center">
-                            <a href="/character/details/{{ $character->id }}">
-                                <img class="mx-auto mb-4 w-36 h-36 object-center object-cover rounded-full" src="{{ $character->image }}" alt="Bonnie Avatar">
-                            </a>
-                            <h3 class="mb-1 text-2xl font-bold tracking-tight">
-                                {{ $character->name }}
-                            </h3>
-                            <a href="/anime/details/{{ $character->anime->id }}">
-                                <p class="mt-3 text-indigo-500 inline-flex items-center">
-                                    {{ $character->anime->title }}
-                                </p>
-                            </a>
-                        </div>
+                        @foreach($va->characters as $character)
+                            <div class="text-center">
+                                <a href="/character/details/{{ $character->id }}">
+                                    <img class="mx-auto mb-4 w-36 h-36 object-center object-cover rounded-full" src="{{ $character->image }}" alt="Bonnie Avatar">
+                                </a>
+                                <h3 class="mb-1 text-2xl font-bold tracking-tight">
+                                    {{ $character->name }}
+                                </h3>
+                                <a href="/anime/details/{{ $character->anime->id }}">
+                                    <p class="mt-3 text-indigo-500 inline-flex items-center">
+                                        {{ $character->anime->title }}
+                                    </p>
+                                </a>
+                            </div>
+                        @endforeach
                     </div>
-                @endforeach
             </div>
         </div>
     </div>

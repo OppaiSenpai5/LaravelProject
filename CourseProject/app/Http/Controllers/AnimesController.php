@@ -15,7 +15,7 @@ class AnimesController extends Controller
 
     public function list()
     {
-        $animes = Anime::filters()->defaultSort('id')->paginate();
+        $animes = Anime::filters()->defaultSort('id')->paginate(100);
 
         return view('anime/animes', compact('animes'));
     }

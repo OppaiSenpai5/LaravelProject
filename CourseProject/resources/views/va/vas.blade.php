@@ -6,7 +6,7 @@
             <div class="bg-slate-900 overflow-hidden shadow-xl sm:rounded-lg p-5">
                 <section class="mt-12 text-white text-center">
                     <div class="flex flex-col text-center w-full mb-20">
-                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4">
+                        <h1 class="sm:text-5xl text-2xl font-medium title-font mb-4">
                             Voice Actors
                         </h1>
                     </div>

@@ -15,7 +15,7 @@
                             </a>
                         </p>
                         <p class="leading-relaxed text-base">Voice actor:
-                            <a class="mt-3 text-indigo-500 inline-flex items-center" href="/va/details/{{ $character->anime->id }}">
+                            <a class="mt-3 text-indigo-500 inline-flex items-center" href="/va/details/{{ $character->va->id }}">
                                 {{ $character->va->name }}
                             </a>
                         </p>

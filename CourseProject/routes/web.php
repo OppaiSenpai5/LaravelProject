@@ -18,7 +18,11 @@ use App\Http\Middleware;
 */
 
 
-Route::middleware(['auth:sanctum','verified'])->group(function() {
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
 
     Route::get('/', function () {
         return view('welcome');
@@ -27,15 +31,6 @@ Route::middleware(['auth:sanctum','verified'])->group(function() {
     Route::get('/dashboard',function (){
         return view('dashboard');
     })->name('dashboard');
-});
-
-
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
 
     Route::get('/animes', [AnimesController::class, 'list'])->name('animes');
     Route::get('/vas', [VasController::class, 'list'])->name('vas');
